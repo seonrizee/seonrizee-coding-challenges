@@ -1,36 +1,12 @@
-public class PGRS_3진법_뒤집기 {
-
-    // 직접 구현 버전
+class Solution {
     public int solution(int n) {
-        String cur;
-        cur = toThreeAndReverse(n);
-        n = toTen(cur);
+        // 1. 10진수 n을 3진법 문자열로 변환
+        String base3 = Integer.toString(n, 3);
 
-        return n;
-    }
+        // 2. StringBuilder를 사용해 문자열을 뒤집음
+        String reversedBase3 = new StringBuilder(base3).reverse().toString();
 
-    private String toThreeAndReverse(int n) {
-        StringBuilder sb = new StringBuilder();
-
-        while (n > 0) {
-            int a = n / 3;
-            int b = n % 3;
-
-            sb.append(b);
-            n = a;
-        }
-
-        return sb.toString();
-    }
-
-    private int toTen(String n) {
-        int number = 0;
-        int power = 1;
-        int length = n.length();
-        for (int i = length - 1; i >= 0; i--) {
-            number += ((n.charAt(i) - '0') * power);
-            power *= 3;
-        }
-        return number;
+        // 3. 뒤집힌 3진법 문자열을 다시 10진수 정수로 변환
+        return Integer.parseInt(reversedBase3, 3);
     }
 }
