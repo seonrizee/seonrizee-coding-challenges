@@ -1,4 +1,4 @@
-class Solution {
+public class PGRS_3진법_뒤집기 {
     public int solution(int n) {
         // 1. 10진수 n을 3진법 문자열로 변환
         String base3 = Integer.toString(n, 3);
